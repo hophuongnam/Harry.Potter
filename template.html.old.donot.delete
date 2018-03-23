@@ -1,0 +1,206 @@
+<!doctype html>
+
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+  <title>TITLEWILLBEHERE</title>
+  <meta name="description" content="Harry Potter">
+  <meta name="author" content="NamHP">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <!--
+  <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet">
+  -->
+
+ <style>
+    /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+    button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+    body {
+    	font-family: "Gentium Book Basic", Georgia, "Times New Roman", "Palatino Linotype", YuMin, 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', '游明朝', '游明朝体', YuMincho, 'Yu Mincho', 'ＭＳ 明朝', 'MS Mincho', HiraMinProN-W3, 'TakaoEx明朝', TakaoExMincho, 'MotoyaLCedar', 'Droid Sans Japanese', serif;
+    }
+
+    #mainContent {
+      margin: 50px 50px 50px 50px;
+      font-size: 1.5em;
+      letter-spacing: 1px;
+      writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-rl;
+      text-align: justify;
+    }	
+
+    rt {
+      visibility: hidden;
+      letter-spacing: 0px;
+      font-size: 40%;
+    }
+
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: hidden;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    #modal-content {
+      background-color: #fefefe;
+      padding: 20px;
+      border: 1px solid #888;
+      overflow: auto;
+      border-radius: 8px;
+      max-height: 80vh;
+      max-width: 60vw;
+    }
+
+    .mt {
+      text-indent: 2em;
+      margin: 0 20px;
+    }
+
+    digit {
+      text-combine-upright: all;
+    }
+
+    @media all and (min-width: 960px) {
+      body {font-size: 18px;}
+    }
+ 
+    @media all and (max-width: 959px) and (min-width: 600px) {
+      body {font-size: 16px;}
+    }
+ 
+    @media all and (max-width: 599px) and (min-width: 320px) {
+      body {font-size: 12px;}
+    }
+
+    #rikaichan-window {width: 600px !important;}
+  </style>
+
+  <script>
+    /* Base64.js https://www.npmjs.com/package/js-base64 */
+    !function(t){"use strict";var r,e=t.Base64;if("undefined"!=typeof module&&module.exports)try{r=require("buffer").Buffer}catch(t){}var n="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",o=function(t){for(var r={},e=0,n=t.length;e<n;e++)r[t.charAt(e)]=e;return r}(n),c=String.fromCharCode,u=function(t){if(t.length<2)return(r=t.charCodeAt(0))<128?t:r<2048?c(192|r>>>6)+c(128|63&r):c(224|r>>>12&15)+c(128|r>>>6&63)+c(128|63&r);var r=65536+1024*(t.charCodeAt(0)-55296)+(t.charCodeAt(1)-56320);return c(240|r>>>18&7)+c(128|r>>>12&63)+c(128|r>>>6&63)+c(128|63&r)},a=/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g,i=function(t){return t.replace(a,u)},f=function(t){var r=[0,2,1][t.length%3],e=t.charCodeAt(0)<<16|(t.length>1?t.charCodeAt(1):0)<<8|(t.length>2?t.charCodeAt(2):0);return[n.charAt(e>>>18),n.charAt(e>>>12&63),r>=2?"=":n.charAt(e>>>6&63),r>=1?"=":n.charAt(63&e)].join("")},h=t.btoa?function(r){return t.btoa(r)}:function(t){return t.replace(/[\s\S]{1,3}/g,f)},d=r?function(t){return(t.constructor===r.constructor?t:new r(t)).toString("base64")}:function(t){return h(i(t))},s=function(t,r){return r?d(String(t)).replace(/[+\/]/g,function(t){return"+"==t?"-":"_"}).replace(/=/g,""):d(String(t))},g=function(t){return s(t,!0)},A=new RegExp(["[À-ß][-¿]","[à-ï][-¿]{2}","[ð-÷][-¿]{3}"].join("|"),"g"),l=function(t){switch(t.length){case 4:var r=((7&t.charCodeAt(0))<<18|(63&t.charCodeAt(1))<<12|(63&t.charCodeAt(2))<<6|63&t.charCodeAt(3))-65536;return c(55296+(r>>>10))+c(56320+(1023&r));case 3:return c((15&t.charCodeAt(0))<<12|(63&t.charCodeAt(1))<<6|63&t.charCodeAt(2));default:return c((31&t.charCodeAt(0))<<6|63&t.charCodeAt(1))}},p=function(t){return t.replace(A,l)},C=function(t){var r=t.length,e=r%4,n=(r>0?o[t.charAt(0)]<<18:0)|(r>1?o[t.charAt(1)]<<12:0)|(r>2?o[t.charAt(2)]<<6:0)|(r>3?o[t.charAt(3)]:0),u=[c(n>>>16),c(n>>>8&255),c(255&n)];return u.length-=[0,0,2,1][e],u.join("")},b=t.atob?function(r){return t.atob(r)}:function(t){return t.replace(/[\s\S]{1,4}/g,C)},B=r?function(t){return(t.constructor===r.constructor?t:new r(t,"base64")).toString()}:function(t){return p(b(t))},S=function(t){return B(String(t).replace(/[-_]/g,function(t){return"-"==t?"+":"/"}).replace(/[^A-Za-z0-9\+\/]/g,""))},v=function(){var r=t.Base64;return t.Base64=e,r};if(t.Base64={VERSION:"2.1.9",atob:b,btoa:h,fromBase64:S,toBase64:s,utob:i,encode:s,encodeURI:g,btou:p,decode:S,noConflict:v},"function"==typeof Object.defineProperty){var y=function(t){return{value:t,enumerable:!1,writable:!0,configurable:!0}};t.Base64.extendString=function(){Object.defineProperty(String.prototype,"fromBase64",y(function(){return S(this)})),Object.defineProperty(String.prototype,"toBase64",y(function(t){return s(this,t)})),Object.defineProperty(String.prototype,"toBase64URI",y(function(){return s(this,!0)}))}}t.Meteor&&(Base64=t.Base64)}(this);
+  </script>
+</head>
+
+<body>
+
+<div id="modal">
+  <div id="modal-content">
+  </div>
+</div>
+
+<!--
+<div style="position: fixed; top: 15px; left: 30px;">
+  <button id=toggleRuby type=button>Ruby ON</button>
+  <script>
+    $("#toggleRuby").click(function() {
+      if ($(this).text() == "Ruby ON" ) {
+        $(this).text("Ruby OFF");
+        $("rt").css("visibility", "visible");
+      } else {
+        $(this).text("Ruby ON");
+        $("rt").css("visibility", "hidden");
+      }
+    });
+  </script>
+</div>
+-->
+
+<!-- CONTENT BELOW -->
+<div id="mainContent">
+CONTENTWILLBEHERE
+</div>
+<!-- CONTENT ABOVE -->
+
+<script>
+  var isAndroid = /(android)/i.test(navigator.userAgent);
+  $().ready(function() {
+    var touch = 'ontouchstart' in document.documentElement
+            || navigator.maxTouchPoints > 0
+            || navigator.msMaxTouchPoints > 0;
+
+    function hideRT(rt) {
+      setTimeout(function(rt) {
+        if ($('#modal').is(':visible')) {
+          hideRT(rt);
+        } else {
+          rt.css('visibility', 'hidden');
+        }
+      }, 10000, rt);
+    }
+
+    function showModal(html) {
+      modal_content = $('#modal-content');
+      modal_content.height(1);      
+      modal_content.html(html);
+            
+      modal_content.css("visibility", "hidden");
+      $('#modal').show();
+      
+      scrollHeight = modal_content.prop('scrollHeight');
+      padding = modal_content.innerWidth() - modal_content.width();
+      modal_content.height(scrollHeight - padding);
+
+      margin = ( 100 - (modal_content.height() * (100 / document.documentElement.clientHeight))) / 2 - 5;
+      modal_content.css("margin" , margin + "vh auto")
+
+      modal_content.css("visibility", "visible");
+    }
+
+    if (touch) {
+      $('ruby').click(function () {
+        rt = $(this).find('rt');
+        if (rt.css('visibility') == 'hidden' ) {
+          rt.css('visibility', 'visible');
+          hideRT(rt);
+        }
+      });
+    } else {
+      var sheet = document.createElement('style')
+      sheet.innerHTML = "ruby:hover rt {visibility: visible;}";
+      document.body.appendChild(sheet);
+    }
+
+    $('.english').click(function () {
+      showModal(Base64.decode($(this).data('english')));
+    });
+
+    $('#modal').click(function (e) {
+      if (e.target !== this) {return}
+      $('#modal').hide();
+    });
+
+    var scrollPos = "SCROLLPOSWILLBEHERE";
+    if (localStorage && localStorage.getItem(scrollPos)) {
+      $('body, html').scrollLeft(localStorage.getItem(scrollPos));
+    } else {
+      $('body, html').scrollLeft($(document).outerWidth() - $(window).width());
+    }
+
+    $(window).scroll(function (){
+      localStorage.setItem(scrollPos, $(window).scrollLeft());
+    });
+
+    if ($('#mainContent').css('writing-mode') != 'horizontal-tb') {
+      $('#mainContent').css('height', $('#mainContent').css('height'));
+    }
+    
+    if (isAndroid) {
+      sheet = document.createElement('style')
+      sheet.innerHTML = "@font-face {font-family: YuMin; src: url(yumindb.ttf);}";
+      document.body.appendChild(sheet);
+    }
+  });
+</script>
+</body>
+</html>
