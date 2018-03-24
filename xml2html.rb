@@ -44,4 +44,4 @@ o.gsub! "CONTENTWILLBEHERE", output
 o.gsub! "TITLEWILLBEHERE", title
 o.gsub! "SCROLLPOSWILLBEHERE", ARGV[0]
 
-File.open("../../time4vps.html/hp/#{ARGV[0].split('.')[0]}.html", "w") {|f| f.write o}
+File.open("../time4vps.html/hp/#{ARGV[0].split('.')[0]}.html", "w") {|f| f.write o}
