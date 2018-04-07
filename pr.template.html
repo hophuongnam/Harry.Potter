@@ -8,28 +8,19 @@
 
   <title>TITLEWILLBEHERE</title>
   <meta name="description" content="Harry Potter">
-  <meta name="author" content="NamHP">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
-  <!--
-  <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet">
-  -->
 
  <style>
     /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
     button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
 
     body {
-    	font-family: "Gentium Book Basic", Georgia, "Times New Roman", "Palatino Linotype", YuMin, 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', '游明朝', '游明朝体', YuMincho, 'Yu Mincho', 'ＭＳ 明朝', 'MS Mincho', HiraMinProN-W3, 'TakaoEx明朝', TakaoExMincho, 'MotoyaLCedar', 'Droid Sans Japanese', serif;
-      font-size: 20px;
+      font-family: Tahoma, Arial, Helvetica, Verdana, Geneva, YuMin, 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', '游明朝', '游明朝体', 'Yu Mincho', 'ＭＳ 明朝', 'MS Mincho', 'HiraMinProN-W3', 'TakaoEx明朝', 'TakaoExMincho', 'MotoyaLCedar', 'Droid Sans Japanese', sans-serif;
+      font-size: 24px;
     }
 
     #mainContent {
-      margin: 50px 50px 50px 50px;
+      margin: 1em;
       letter-spacing: 1px;
-      writing-mode: vertical-rl;
-      -webkit-writing-mode: vertical-rl;
       text-align: justify;
       line-height: 1.7;
     }	
@@ -40,48 +31,25 @@
       font-size: 40%;
     }
 
-    .mt {
+    .jp {
       text-indent: 2em;
-      margin: 0 1em;
+      width: 50%;
+      margin: 1em 0;
+      /*visibility: hidden;*/
     }
 
-    digit {
-      text-combine-upright: all;
+    .en {
+      // position: absolute;
+      // left: calc(50% + 1em);
+      // padding-right: 1em;
+      font-size: 0.8em;
+      width: 45%;
+      line-height: 1.5;
+      text-indent: 2em;
     }
 
-    ruby {  
-      display: inline-block;
-      line-height: 1em;
-      position: relative;
-    }
-
-    span.rb {
-      display: inline-block;
-      padding-right: 0.6em;
-    }
-
-    span.rt {
-      font-size: 0.55em;
-      position: absolute;
-      display: block;
-      line-height: 1.3em;
-      right: 0;
-    }
-
-    /* Media Queries */
-    /* Computer */
-    @media screen 
-        and (min-device-width: 1200px) {
-            body {font-size: 30px;} 
-    }
-
-    /* ----------- iPad 1, 2, Mini and Air ----------- */
-    /* Portrait and Landscape */
-    @media only screen 
-        and (min-device-width: 768px) 
-        and (max-device-width: 1024px) 
-        and (-webkit-min-device-pixel-ratio: 1) {
-            body {font-size: 25px;}
+    .en p {
+      margin-top: 0.5em;
     }
   </style>
 </head>
@@ -93,8 +61,76 @@ CONTENTWILLBEHERE
 </div>
 <!-- CONTENT ABOVE -->
 
+<script type="text/javascript" src="/jquery.min.js"></script>
+<!-- tether.js is custom patched, DO NOT update -->
+<script type="text/javascript" src="/tether.js"></script>
 <script>
   var isAndroid = /(android)/i.test(navigator.userAgent);
+  var isLinux = /linux/i.test(navigator.userAgent);
+
+  /* Fake GUID */
+  function guid() {
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+  }
+
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+  }
+  /* Fake GUID */
+
+  const cacheAvailable = 'caches' in self;
+  var cacheName = 'bunkei';
+  async function getData(filename, same) {
+      // same: true/false. false will delete file
+      var myCache;
+      var dataReturn;
+
+      if (cacheAvailable) {
+          await caches.open(cacheName).then((cache) => {
+              myCache = cache
+          });
+
+          if (!same) {
+              await myCache.delete(filename);
+          }
+          
+          await myCache.match(filename)
+          .then(
+              (resp) => {
+                  if (resp) {
+                      return resp.json()
+                  } else {
+                      return myCache.add(filename)
+                      .then(
+                          () => {
+                              return myCache.match(filename)
+                              .then(
+                                  (resp) => {
+                                      return resp.json()
+                                  }
+                              )
+                          }
+                      )
+                  }
+              }
+          )
+          .then(
+              (data) => {
+                  dataReturn = data
+              }
+          );
+          return dataReturn;
+      } else {
+          await $.getJSON(filename, function(data) {
+              dataReturn = data
+          });
+          return dataReturn;
+      }
+  }
+
   $().ready(function() {
     var touch = 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
@@ -122,20 +158,40 @@ CONTENTWILLBEHERE
 
     var scrollPos = "SCROLLPOSWILLBEHERE";
     if (localStorage && localStorage.getItem(scrollPos)) {
-      $('body, html').scrollLeft(localStorage.getItem(scrollPos));
-    } else {
-      $('body, html').scrollLeft($(document).outerWidth() - $(window).width());
+      $('body, html').scrollTop(localStorage.getItem(scrollPos));
     }
 
     $(window).scroll(function (){
-      localStorage.setItem(scrollPos, $(window).scrollLeft());
+      localStorage.setItem(scrollPos, $(window).scrollTop());
     });
 
-    if (isAndroid) {
-      sheet = document.createElement('style')
-      sheet.innerHTML = "@font-face {font-family: YuMin; src: url(yumin.ttf);}";
-      document.body.appendChild(sheet);
+    if (isAndroid || isLinux) {
+      getData('/mincho.json', true).then(
+        function(value) {
+          var sheetMincho = document.createElement('style');
+            sheetMincho.innerHTML = "@font-face{font-family:YuMin;src:url(data:font/ttf;base64," + value.mincho + ")}";
+            document.body.appendChild(sheetMincho);
+        }
+      );
     }
+
+    $(".jp").each(function() {
+      var enID = guid();
+      if ($(this).data("en")) {
+        $('body').append(`<div id=${enID} class=en>${$(this).data('en')}</div>`);
+        var enPanel = $(`#${enID}`);
+        // enPanel.css("top", $(this).offset().top);
+        new Tether({
+          element: enPanel,
+          target: this,
+          attachment: "top left",
+          targetAttachment: "top right",
+          targetOffset: "0 24px"
+        });
+      }
+      
+    });
+
   });
 </script>
 </body>

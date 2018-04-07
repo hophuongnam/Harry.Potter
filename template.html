@@ -10,10 +10,6 @@
   <meta name="description" content="Harry Potter">
 
   <script type="text/javascript" src="/jquery.min.js"></script>
-  
-  <!--
-  <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic" rel="stylesheet">
-  -->
 
  <style>
     /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
@@ -45,18 +41,26 @@
       font-size: 40%;
     }
 
-    .mt {
+    .jp {
       text-indent: 2em;
       margin: 0 1em;
+      /*visibility: hidden;*/
     }
 
     digit {
       text-combine-upright: all;
     }
 
-    /* Media Queries */
+    #rikaichamp-window {
+      writing-mode: horizontal-tb;
+    }
+
     @media (min-width: 800px) {
-      body {font-size: 30px;}
+        body {font-size: 30px;}
+    }
+
+    @media (min-width: 800px) and (max-height: 800px) {
+        body {font-size: 20px};
     }
   </style>
 </head>
@@ -163,12 +167,9 @@ CONTENTWILLBEHERE
             sheetMincho.innerHTML = "@font-face{font-family:YuMin;src:url(data:font/ttf;base64," + value.mincho + ")}";
             document.body.appendChild(sheetMincho);
         }
-      )
-
-      /*sheet = document.createElement('style')
-      sheet.innerHTML = "@font-face {font-family: YuMin; src: url(yumin.ttf);}";
-      document.body.appendChild(sheet);*/
+      );
     }
+
   });
 </script>
 </body>
