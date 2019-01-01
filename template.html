@@ -1,5 +1,20 @@
 <!doctype html>
-
+<!--
+#######################################################################
+#                   Version 2, December 2004                          #
+#                                                                     #
+# Copyright (C) 2018 Ho Phuong Nam <ho.phuong.nam@gmail.com>          #
+#                                                                     #
+# Everyone is permitted to copy and distribute verbatim or modified   #
+# copies of this license document, and changing it is allowed as long #
+# as the name is changed.                                             #
+#                                                                     #
+#           DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE               #
+#  TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION    #
+#                                                                     #
+# 0. You just DO WHAT THE FUCK YOU WANT TO.                           #
+#######################################################################
+-->
 <html lang="ja">
 <head>
   <meta charset="utf-8">
@@ -24,7 +39,7 @@
     }
 
     body {
-      font-family: Tahoma, Arial, Helvetica, Verdana, Geneva, YuMin, 'ヒラギノ明朝 ProN', 'Hiragino Mincho ProN', '游明朝', '游明朝体', 'Yu Mincho', 'ＭＳ 明朝', 'MS Mincho', 'HiraMinProN-W3', 'TakaoEx明朝', 'TakaoExMincho', 'MotoyaLCedar', 'Droid Sans Japanese', sans-serif;
+      font-family: Tahoma, Arial, Helvetica, Verdana, Geneva, YuMin, 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', 'HiraMinProN-W3', 'TakaoExMincho', 'MotoyaLCedar', 'Droid Sans Japanese', sans-serif;
       font-size: 20px;
     }
 
@@ -33,7 +48,7 @@
       letter-spacing: 1px;
       text-align: justify;
       line-height: 1.7;
-    }	
+    }    
 
     rt {
       visibility: hidden;
@@ -51,26 +66,79 @@
       text-combine-upright: all;
     }
 
-    #rikaichamp-window {
+    .en {
+      height: 1em;
+      padding-top: 0.5em;
+    }
+
+    #yomichan-float {
+      left: 0 !important;
+      top:  0 !important;
+      height: 50% !important;
+    }
+
+    #rikaichan-window {
       writing-mode: horizontal-tb;
     }
 
+    .modal {
+      writing-mode: horizontal-tb;
+      display: none;
+      position: fixed;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: hidden;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modalContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .modalContent {
+      background-color: #fefefe;
+      padding: 20px;
+      border: 1px solid #888;
+      overflow: auto;      
+      border-radius: 8px;
+      max-height: 70%;
+      max-width: 70%;
+    }
+
+    .trans { /* Style for translation, use with showModal() */
+      font-size: 0.7em;
+      line-height: 1.5;
+    }
+
     @media (min-width: 800px) {
-        body {font-size: 30px;}
+      body {font-size: 30px;}
     }
 
     @media (min-width: 800px) and (max-height: 800px) {
-        body {font-size: 20px};
+      body {font-size: 20px};
     }
   </style>
 </head>
 
 <body>
-<!-- CONTENT BELOW -->
-<div id="mainContent">
-CONTENTWILLBEHERE
-</div>
-<!-- CONTENT ABOVE -->
+
+  <div id="mainContent">
+    CONTENTWILLBEHERE
+  </div>
+
+    <div class=modal>
+      <div class=modalContainer>
+        <div class=modalContent></div>
+      </div>
+    </div>
 
 <script>
   var isAndroid = /(android)/i.test(navigator.userAgent);
@@ -126,6 +194,22 @@ CONTENTWILLBEHERE
       }
   }
 
+  function showModal(html, elClass) {
+    $(".modalContent").attr("class", "modalContent");
+    $(".modalContent").html(html);
+    if (elClass) {
+      $(".modalContent").addClass(elClass);
+    }
+    $(".modal").show();
+  }
+
+  $(".modalContainer").click(function (e) {
+    if (e.target !== this) {return}
+    $(".modalContent").html("");
+    $(".modal").hide();
+  });
+
+
   $().ready(function() {
     var touch = 'ontouchstart' in document.documentElement
             || navigator.maxTouchPoints > 0
@@ -169,7 +253,11 @@ CONTENTWILLBEHERE
         }
       );
     }
-/* delete me */
+
+    $(".en").click(function() {
+      showModal($( this ).data("en"), "trans");
+    });
+
   });
 </script>
 </body>
